@@ -12,3 +12,25 @@ sudo ln -s $PWD/etc/ufw/sysctl.conf /etc/ufw
 sudo rm /etc/ufw/before.rules
 sudo ln -s $PWD/etc/ufw/before.rules /etc/ufw
 ```
+
+## Start daemon
+
+```shell
+sudo ufw enable
+sudo systemctl start ufw
+sudo systemctl enable ufw
+```
+
+## Restart daemon
+
+```shell
+sudo ufw reload
+sudo systemctl restart ufw
+```
+
+## Check daemon status
+
+```shell
+sudo ufw status
+sudo systemctl status ufw
+```
