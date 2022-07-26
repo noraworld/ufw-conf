@@ -5,6 +5,7 @@ UFW config files.
 
 ```shell
 cd ufw-conf
+
 sudo rm /etc/default/ufw
 sudo ln -s $PWD/etc/default/ufw /etc/default
 
