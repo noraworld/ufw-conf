@@ -42,6 +42,9 @@
 -A ufw6-user-input -p tcp --dport 1194 -j DROP
 -A ufw6-user-input -p udp --dport 1194 -j DROP
 
+### tuple ### allow udp 123 ::/0 any ::/0 in
+-A ufw6-user-input -p udp --dport 123 -j ACCEPT
+
 ### END RULES ###
 
 ### LOGGING ###
