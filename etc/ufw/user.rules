@@ -45,6 +45,10 @@
 ### tuple ### allow udp 123 0.0.0.0/0 any 0.0.0.0/0 in
 -A ufw-user-input -p udp --dport 123 -j ACCEPT
 
+### tuple ### route:deny any 53 0.0.0.0/0 any 0.0.0.0/0 in
+-A ufw-user-forward -p tcp --dport 53 -j DROP
+-A ufw-user-forward -p udp --dport 53 -j DROP
+
 ### END RULES ###
 
 ### LOGGING ###
