@@ -24,16 +24,8 @@
 ### tuple ### allow tcp 60313 0.0.0.0/0 any 0.0.0.0/0 in
 -A ufw-user-input -p tcp --dport 60313 -j ACCEPT
 
-### tuple ### allow any 53 0.0.0.0/0 any 0.0.0.0/0 in
--A ufw-user-input -p tcp --dport 53 -j ACCEPT
--A ufw-user-input -p udp --dport 53 -j ACCEPT
-
 ### tuple ### allow udp 67:68 0.0.0.0/0 any 0.0.0.0/0 in
 -A ufw-user-input -p udp -m multiport --dports 67:68 -j ACCEPT
-
-### tuple ### allow any 53 0.0.0.0/0 any 0.0.0.0/0 out
--A ufw-user-output -p tcp --dport 53 -j ACCEPT
--A ufw-user-output -p udp --dport 53 -j ACCEPT
 
 ### tuple ### deny any 1194 0.0.0.0/0 any 0.0.0.0/0 in
 -A ufw-user-input -p tcp --dport 1194 -j DROP
@@ -48,6 +40,9 @@
 ### tuple ### route:deny any 53 0.0.0.0/0 any 0.0.0.0/0 in
 -A ufw-user-forward -p tcp --dport 53 -j DROP
 -A ufw-user-forward -p udp --dport 53 -j DROP
+
+### tuple ### allow udp 53 0.0.0.0/0 any 0.0.0.0/0 in
+-A ufw-user-input -p udp --dport 53 -j ACCEPT
 
 ### END RULES ###
 
