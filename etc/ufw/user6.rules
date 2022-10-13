@@ -17,9 +17,6 @@
 :ufw6-user-limit-accept - [0:0]
 ### RULES ###
 
-### tuple ### deny tcp 22 ::/0 any ::/0 in
--A ufw6-user-input -p tcp --dport 22 -j DROP
-
 ### tuple ### allow any 60313 ::/0 any ::/0 in
 -A ufw6-user-input -p tcp --dport 60313 -j ACCEPT
 -A ufw6-user-input -p udp --dport 60313 -j ACCEPT

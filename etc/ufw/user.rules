@@ -27,9 +27,6 @@
 ### tuple ### allow udp 67:68 0.0.0.0/0 any 0.0.0.0/0 in
 -A ufw-user-input -p udp -m multiport --dports 67:68 -j ACCEPT
 
-### tuple ### deny tcp 22 0.0.0.0/0 any 0.0.0.0/0 in
--A ufw-user-input -p tcp --dport 22 -j DROP
-
 ### tuple ### allow udp 123 0.0.0.0/0 any 0.0.0.0/0 in
 -A ufw-user-input -p udp --dport 123 -j ACCEPT
 
