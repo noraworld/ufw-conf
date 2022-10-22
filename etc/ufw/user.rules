@@ -34,6 +34,9 @@
 ### tuple ### allow udp 53 0.0.0.0/0 any 0.0.0.0/0 in
 -A ufw-user-input -p udp --dport 53 -j ACCEPT
 
+### tuple ### allow udp 546:547 0.0.0.0/0 any 0.0.0.0/0 in
+-A ufw-user-input -p udp -m multiport --dports 546:547 -j ACCEPT
+
 ### END RULES ###
 
 ### LOGGING ###
