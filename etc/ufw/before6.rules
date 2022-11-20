@@ -140,3 +140,9 @@
 
 # don't delete the 'COMMIT' line or these rules won't be processed
 COMMIT
+
+*nat
+:POSTROUTING ACCEPT [0:0]
+#-A POSTROUTING -s 192.168.82.0/24 -o tun0 -j MASQUERADE
+-A POSTROUTING -o eth1 -j MASQUERADE
+COMMIT
