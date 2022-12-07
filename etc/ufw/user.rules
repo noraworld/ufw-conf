@@ -37,6 +37,10 @@
 ### tuple ### allow udp 546:547 0.0.0.0/0 any 0.0.0.0/0 in
 -A ufw-user-input -p udp -m multiport --dports 546:547 -j ACCEPT
 
+### tuple ### route:deny any 1194 0.0.0.0/0 any 0.0.0.0/0 in
+-A ufw-user-forward -p tcp --dport 1194 -j DROP
+-A ufw-user-forward -p udp --dport 1194 -j DROP
+
 ### END RULES ###
 
 ### LOGGING ###
