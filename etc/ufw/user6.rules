@@ -41,6 +41,10 @@
 -A ufw6-user-forward -p tcp --dport 1194 -j DROP
 -A ufw6-user-forward -p udp --dport 1194 -j DROP
 
+### tuple ### allow any 80 ::/0 any ::/0 in
+-A ufw6-user-input -p tcp --dport 80 -j ACCEPT
+-A ufw6-user-input -p udp --dport 80 -j ACCEPT
+
 ### END RULES ###
 
 ### LOGGING ###
