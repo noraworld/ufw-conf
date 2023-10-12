@@ -34,3 +34,10 @@ sudo systemctl restart ufw
 sudo ufw status
 sudo systemctl status ufw
 ```
+
+## Caution
+If you modify the UFW configuration illegally, like the following, it's sometimes disabled (the value of "ENABLED" is turned into "no" in `etc/ufw/ufw.conf`) automatically, which causes network issues and the infinite application.
+
+```shell
+printf "*filter\nCOMMIT\n*nat\nCOMMIT\n" | sudo iptables-restore; sudo ufw reload
+```
