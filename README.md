@@ -35,7 +35,11 @@ sudo ufw status
 sudo systemctl status ufw
 ```
 
-## Caution
+## Cautions
+You shouldn't update the settings manually or comment in the file in this repository because they are overwritten by the `ufw` command.
+
+---
+
 If you modify the UFW configuration illegally, like the following, it's sometimes disabled (the value of "ENABLED" is turned into "no" in `etc/ufw/ufw.conf`) automatically, which causes network issues and the infinite application.
 
 ```shell
