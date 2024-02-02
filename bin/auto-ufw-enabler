@@ -6,6 +6,7 @@ CONF="etc/ufw/ufw.conf"
 main() {
   if [ "$(grep -c "ENABLED=yes" "$REPO/$CONF")" -le 0 ]; then
     git -C "$REPO" restore "$CONF"
+    sudo ufw reload
   fi
 }
 
