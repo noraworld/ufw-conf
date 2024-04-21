@@ -62,10 +62,27 @@
 ### tuple ### allow tcp 32768:60999 ::/0 any ::/0 in
 -A ufw6-user-input -p tcp -m multiport --dports 32768:60999 -j ACCEPT
 
+### tuple ### route:allow tcp 1:52 ::/0 any ::/0 in
+-A ufw6-user-forward -p tcp -m multiport --dports 1:52 -j ACCEPT
+
+### tuple ### route:allow tcp 54:1023 ::/0 any ::/0 in
+-A ufw6-user-forward -p tcp -m multiport --dports 54:1023 -j ACCEPT
+
+### tuple ### route:allow udp 1:52 ::/0 any ::/0 in
+-A ufw6-user-forward -p udp -m multiport --dports 1:52 -j ACCEPT
+
+### tuple ### route:allow udp 54:1023 ::/0 any ::/0 in
+-A ufw6-user-forward -p udp -m multiport --dports 54:1023 -j ACCEPT
+
+### tuple ### route:allow any 60313 ::/0 any ::/0 in
+-A ufw6-user-forward -p tcp --dport 60313 -j ACCEPT
+-A ufw6-user-forward -p udp --dport 60313 -j ACCEPT
+
 ### END RULES ###
 
 ### LOGGING ###
 -A ufw6-after-logging-input -j LOG --log-prefix "[UFW BLOCK] " -m limit --limit 3/min --limit-burst 10
+-A ufw6-after-logging-forward -j LOG --log-prefix "[UFW BLOCK] " -m limit --limit 3/min --limit-burst 10
 -I ufw6-logging-deny -m conntrack --ctstate INVALID -j RETURN -m limit --limit 3/min --limit-burst 10
 -A ufw6-logging-deny -j LOG --log-prefix "[UFW BLOCK] " -m limit --limit 3/min --limit-burst 10
 -A ufw6-logging-allow -j LOG --log-prefix "[UFW ALLOW] " -m limit --limit 3/min --limit-burst 10
