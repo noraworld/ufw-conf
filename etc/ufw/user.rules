@@ -78,6 +78,9 @@
 -A ufw-user-forward -p tcp --dport 60313 -j ACCEPT
 -A ufw-user-forward -p udp --dport 60313 -j ACCEPT
 
+### tuple ### route:allow udp 50000:65535 0.0.0.0/0 any 0.0.0.0/0 in
+-A ufw-user-forward -p udp -m multiport --dports 50000:65535 -j ACCEPT
+
 ### END RULES ###
 
 ### LOGGING ###
