@@ -70,6 +70,27 @@
 -A ufw-user-forward -p tcp --dport 51820 -j DROP
 -A ufw-user-forward -p udp --dport 51820 -j DROP
 
+### tuple ### route:deny udp 1231:1234 0.0.0.0/0 any 0.0.0.0/0 in
+-A ufw-user-forward -p udp -m multiport --dports 1231:1234 -j DROP
+
+### tuple ### route:deny udp 1194 0.0.0.0/0 any 0.0.0.0/0 in
+-A ufw-user-forward -p udp --dport 1194 -j DROP
+
+### tuple ### route:deny tcp 1723 0.0.0.0/0 any 0.0.0.0/0 in
+-A ufw-user-forward -p tcp --dport 1723 -j DROP
+
+### tuple ### route:deny tcp 1701 0.0.0.0/0 any 0.0.0.0/0 in
+-A ufw-user-forward -p tcp --dport 1701 -j DROP
+
+### tuple ### route:deny udp 500 0.0.0.0/0 any 0.0.0.0/0 in
+-A ufw-user-forward -p udp --dport 500 -j DROP
+
+### tuple ### route:deny udp 4500 0.0.0.0/0 any 0.0.0.0/0 in
+-A ufw-user-forward -p udp --dport 4500 -j DROP
+
+### tuple ### route:deny tcp 1231:1234 0.0.0.0/0 any 0.0.0.0/0 in
+-A ufw-user-forward -p tcp -m multiport --dports 1231:1234 -j DROP
+
 ### END RULES ###
 
 ### LOGGING ###
