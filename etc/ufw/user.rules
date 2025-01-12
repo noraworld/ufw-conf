@@ -62,6 +62,14 @@
 ### tuple ### allow tcp 32768:60999 0.0.0.0/0 any 0.0.0.0/0 in
 -A ufw-user-input -p tcp -m multiport --dports 32768:60999 -j ACCEPT
 
+### tuple ### route:deny any 53 0.0.0.0/0 any 0.0.0.0/0 in
+-A ufw-user-forward -p tcp --dport 53 -j DROP
+-A ufw-user-forward -p udp --dport 53 -j DROP
+
+### tuple ### route:deny any 51820 0.0.0.0/0 any 0.0.0.0/0 in
+-A ufw-user-forward -p tcp --dport 51820 -j DROP
+-A ufw-user-forward -p udp --dport 51820 -j DROP
+
 ### END RULES ###
 
 ### LOGGING ###
