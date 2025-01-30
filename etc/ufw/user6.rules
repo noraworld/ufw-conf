@@ -91,6 +91,10 @@
 ### tuple ### route:deny tcp 1231:1234 ::/0 any ::/0 in
 -A ufw6-user-forward -p tcp -m multiport --dports 1231:1234 -j DROP
 
+### tuple ### route:deny any 853 ::/0 any ::/0 in
+-A ufw6-user-forward -p tcp --dport 853 -j DROP
+-A ufw6-user-forward -p udp --dport 853 -j DROP
+
 ### END RULES ###
 
 ### LOGGING ###
