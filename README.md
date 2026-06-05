@@ -67,3 +67,10 @@ If you suspect the UFW rules are reloaded repeatedly and it causes the network i
 ```shell
 watch -t -n 0.2 git diff
 ```
+
+To see if something goes wrong when the UFW restriction is enabled, type the following command.
+
+```shell
+observe-firewall check --debug
+tail /home/ubuntu/workspace/log/pi/log/observe_firewall_debug.log
+```
