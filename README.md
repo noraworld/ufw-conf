@@ -46,7 +46,7 @@ The forwarding ports except for well-known ones are blocked by default, but thes
 
 The port `51820` is used for [NordVPN WireGuard](https://chatgpt.com/share/6734528b-0d14-8004-9253-770de34c4db2).
 
-## Cautions
+## ⚠️ Cautions
 You shouldn't update the settings manually or comment in the file in this repository because they are overwritten by the `ufw` command.
 
 ---
@@ -57,9 +57,13 @@ If you modify the UFW configuration illegally, like the following, it's sometime
 printf "*filter\nCOMMIT\n*nat\nCOMMIT\n" | sudo iptables-restore; sudo ufw reload
 ```
 
-## Troubleshootings
+---
+
+Be very careful when you update the rules so you won't violate [the port blocked restriction in observe-firewall](https://github.com/noraworld/cron-conf/blob/65cdcae16f346119627bd9a63f0a4c3c181c1bd0/raspberrypi/bin/observe-firewall#L103-L152).
+
+## 👿 Troubleshootings
 If you suspect the UFW rules are reloaded repeatedly and it causes the network issue, you can check the following command to detect the repeated reloading.
 
 ```shell
-watch -t -n 0.5 git diff
+watch -t -n 0.2 git diff
 ```
