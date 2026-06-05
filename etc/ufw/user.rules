@@ -17,10 +17,6 @@
 :ufw-user-limit-accept - [0:0]
 ### RULES ###
 
-### tuple ### route:allow any 53 1.1.1.1 any 192.168.82.154 in
--A ufw-user-forward -p tcp -d 1.1.1.1 --dport 53 -s 192.168.82.154 -j ACCEPT
--A ufw-user-forward -p udp -d 1.1.1.1 --dport 53 -s 192.168.82.154 -j ACCEPT
-
 ### tuple ### allow any 60313 0.0.0.0/0 any 0.0.0.0/0 in
 -A ufw-user-input -p tcp --dport 60313 -j ACCEPT
 -A ufw-user-input -p udp --dport 60313 -j ACCEPT
